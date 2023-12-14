@@ -1,0 +1,235 @@
+{
+  "uid" : "d7d6a19c79fc3894",
+  "name" : "Test Cases -> Name and Statuses with the word: طفلةنار",
+  "fullName" : "stoplist_test.spec.ts#Stoplist Page Test Cases -> Name and Statuses with the word: طفلةنار",
+  "historyId" : "ebe9a729fd5721c5f520f1251cec8d4a:5bd835b0d6b1d4ada3b9f0db936e82c8",
+  "time" : {
+    "start" : 1702519307131,
+    "stop" : 1702519307579,
+    "duration" : 448
+  },
+  "status" : "failed",
+  "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 4",
+  "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 4\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 4",
+    "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 4\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+    "steps" : [ {
+      "name" : "Before Hooks",
+      "time" : {
+        "start" : 1702519307141,
+        "stop" : 1702519307172,
+        "duration" : 31
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1702519307176,
+        "stop" : 1702519307195,
+        "duration" : 19
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1702519307227,
+        "stop" : 1702519307229,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequestContext.post(https://2dy2uz7et5bwusqjdhgnbgivqu0qdmbm.lambda-url.us-east-1.on.aws/)",
+      "time" : {
+        "start" : 1702519307256,
+        "stop" : 1702519307409,
+        "duration" : 153
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toBeTruthy",
+      "time" : {
+        "start" : 1702519307414,
+        "stop" : 1702519307414,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiResponse.json",
+      "time" : {
+        "start" : 1702519307416,
+        "stop" : 1702519307437,
+        "duration" : 21
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toEqual",
+      "time" : {
+        "start" : 1702519307446,
+        "stop" : 1702519307447,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toContain",
+      "time" : {
+        "start" : 1702519307448,
+        "stop" : 1702519307448,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toEqual",
+      "time" : {
+        "start" : 1702519307449,
+        "stop" : 1702519307451,
+        "duration" : 2
+      },
+      "status" : "failed",
+      "statusMessage" : "expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 4",
+      "statusTrace" : "\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    }, {
+      "name" : "After Hooks",
+      "time" : {
+        "start" : 1702519307452,
+        "stop" : 1702519307578,
+        "duration" : 126
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "c1c2812bc73429e1",
+      "name" : "trace",
+      "source" : "c1c2812bc73429e1.zip",
+      "type" : "application/zip",
+      "size" : 6709
+    }, {
+      "uid" : "5c9169042f6444e1",
+      "name" : "stdout",
+      "source" : "5c9169042f6444e1.txt",
+      "type" : "text/plain",
+      "size" : 48
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 10,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "language",
+    "value" : "JavaScript"
+  }, {
+    "name" : "framework",
+    "value" : "Playwright"
+  }, {
+    "name" : "titlePath",
+    "value" : " > chromium > stoplist_test.spec.ts > Stoplist Page"
+  }, {
+    "name" : "host",
+    "value" : "fv-az530-236"
+  }, {
+    "name" : "thread",
+    "value" : "fv-az530-236-2399-playwright-worker-5"
+  }, {
+    "name" : "parentSuite",
+    "value" : "chromium"
+  }, {
+    "name" : "suite",
+    "value" : "stoplist_test.spec.ts"
+  }, {
+    "name" : "subSuite",
+    "value" : "Stoplist Page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "Project",
+    "value" : "chromium"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d7d6a19c79fc3894.json",
+  "parameterValues" : [ "chromium" ]
+}

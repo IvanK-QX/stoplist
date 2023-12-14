@@ -1,0 +1,205 @@
+{
+  "uid" : "3c82496a99bcb5ed",
+  "name" : "Test Cases -> Name and Statuses with the word: sexypie",
+  "fullName" : "stoplist_test.spec.ts#Stoplist Page Test Cases -> Name and Statuses with the word: sexypie",
+  "historyId" : "fde4f9264ac41e6e2760b2cf00094899:5bd835b0d6b1d4ada3b9f0db936e82c8",
+  "time" : {
+    "start" : 1702519226760,
+    "stop" : 1702519227133,
+    "duration" : 373
+  },
+  "status" : "failed",
+  "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: true\nReceived: false",
+  "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: true\nReceived: false\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:32:29)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: true\nReceived: false",
+    "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: true\nReceived: false\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:32:29)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+    "steps" : [ {
+      "name" : "Before Hooks",
+      "time" : {
+        "start" : 1702519226793,
+        "stop" : 1702519226833,
+        "duration" : 40
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1702519226836,
+        "stop" : 1702519226840,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1702519226890,
+        "stop" : 1702519226893,
+        "duration" : 3
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequestContext.post(https://2dy2uz7et5bwusqjdhgnbgivqu0qdmbm.lambda-url.us-east-1.on.aws/)",
+      "time" : {
+        "start" : 1702519226910,
+        "stop" : 1702519227043,
+        "duration" : 133
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toBeTruthy",
+      "time" : {
+        "start" : 1702519227046,
+        "stop" : 1702519227047,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiResponse.json",
+      "time" : {
+        "start" : 1702519227049,
+        "stop" : 1702519227051,
+        "duration" : 2
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toEqual",
+      "time" : {
+        "start" : 1702519227053,
+        "stop" : 1702519227056,
+        "duration" : 3
+      },
+      "status" : "failed",
+      "statusMessage" : "expect(received).toEqual(expected) // deep equality\n\nExpected: true\nReceived: false",
+      "statusTrace" : "\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:32:29)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:48:13",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    }, {
+      "name" : "After Hooks",
+      "time" : {
+        "start" : 1702519227056,
+        "stop" : 1702519227132,
+        "duration" : 76
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "97a40e0d18eb5d67",
+      "name" : "trace",
+      "source" : "97a40e0d18eb5d67.zip",
+      "type" : "application/zip",
+      "size" : 6563
+    }, {
+      "uid" : "a258cc0e83c75d71",
+      "name" : "stdout",
+      "source" : "a258cc0e83c75d71.txt",
+      "type" : "text/plain",
+      "size" : 41
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 8,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "language",
+    "value" : "JavaScript"
+  }, {
+    "name" : "framework",
+    "value" : "Playwright"
+  }, {
+    "name" : "titlePath",
+    "value" : " > chromium > stoplist_test.spec.ts > Stoplist Page"
+  }, {
+    "name" : "host",
+    "value" : "fv-az530-236"
+  }, {
+    "name" : "thread",
+    "value" : "fv-az530-236-2399-playwright-worker-1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "chromium"
+  }, {
+    "name" : "suite",
+    "value" : "stoplist_test.spec.ts"
+  }, {
+    "name" : "subSuite",
+    "value" : "Stoplist Page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "Project",
+    "value" : "chromium"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3c82496a99bcb5ed.json",
+  "parameterValues" : [ "chromium" ]
+}
