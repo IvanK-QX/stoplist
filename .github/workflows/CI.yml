@@ -1,8 +1,8 @@
 name: CI - All Tests
 
 on:
-    # pull_request:
-    #     branches: [main]
+    pull_request:
+        branches: [main]
 
     workflow_dispatch:
         inputs:
@@ -12,8 +12,8 @@ on:
                 default: 'warning'
             tags:
                 description: 'Manual scenario'
-    schedule:
-        - cron: '00 1 * * *'
+    # schedule:
+    #     - cron: '00 1 * * *'
 
 jobs:
     e2e-tests:
