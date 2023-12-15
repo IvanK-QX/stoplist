@@ -10,7 +10,7 @@ test.describe('Stoplist Page', async () => {
         test(`Test Cases -> Chat Only En with the word: ${word}`, async () => {
             const apiContext = await request.newContext();
             const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.lambdaStoplistsUrl, 'chat_only', word)
+            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
         });
     }
 
@@ -19,7 +19,7 @@ test.describe('Stoplist Page', async () => {
         test(`Test Cases -> Chat Only Es with the word: ${word}`, async () => {
             const apiContext = await request.newContext();
             const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.lambdaStoplistsUrl, 'chat_only', word)
+            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
         });
     }
 
@@ -28,7 +28,7 @@ test.describe('Stoplist Page', async () => {
         test(`Test Cases -> Chat Only Ru with the word: ${word}`, async () => {
             const apiContext = await request.newContext();
             const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.lambdaStoplistsUrl, 'chat_only', word)
+            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
         });
     }
 
@@ -37,7 +37,7 @@ test.describe('Stoplist Page', async () => {
         test(`Test Cases -> Private Chat with the word: ${word}`, async () => {
             const apiContext = await request.newContext();
             const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.lambdaStoplistsUrl, 'private_chat', word)
+            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'private_chat', word)
         });
     }
 
@@ -46,7 +46,7 @@ test.describe('Stoplist Page', async () => {
         test(`Test Cases -> Name and Statuses with the word: ${word}`, async () => {
             const apiContext = await request.newContext();
             const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.lambdaStoplistsUrl, 'name_and_status', word)
+            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'name_and_status', word)
         });
     }
 })
