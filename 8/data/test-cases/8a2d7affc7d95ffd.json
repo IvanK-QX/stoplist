@@ -1,0 +1,324 @@
+{
+  "uid" : "8a2d7affc7d95ffd",
+  "name" : "Test Cases -> Chat Only En with the word: pisspig",
+  "fullName" : "stoplist_test.spec.ts#Stoplist Page Test Cases -> Chat Only En with the word: pisspig",
+  "historyId" : "282806692649f9fcda57b3d9383b4a53:5bd835b0d6b1d4ada3b9f0db936e82c8",
+  "time" : {
+    "start" : 1703679895592,
+    "stop" : 1703679896008,
+    "duration" : 416
+  },
+  "status" : "failed",
+  "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3",
+  "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:12:13",
+  "flaky" : false,
+  "newFailed" : true,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3",
+    "statusTrace" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:12:13",
+    "steps" : [ {
+      "name" : "Before Hooks",
+      "time" : {
+        "start" : 1703679895616,
+        "stop" : 1703679895748,
+        "duration" : 132
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1703679895748,
+        "stop" : 1703679895748,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequest.newContext",
+      "time" : {
+        "start" : 1703679895748,
+        "stop" : 1703679895748,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiRequestContext.post(https://u3h6t7yuxfexjplb6vrpyplbfy0kxvzx.lambda-url.us-east-1.on.aws/)",
+      "time" : {
+        "start" : 1703679895748,
+        "stop" : 1703679895791,
+        "duration" : 43
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toBeTruthy",
+      "time" : {
+        "start" : 1703679895791,
+        "stop" : 1703679895791,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "apiResponse.json",
+      "time" : {
+        "start" : 1703679895796,
+        "stop" : 1703679895818,
+        "duration" : 22
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toEqual",
+      "time" : {
+        "start" : 1703679895828,
+        "stop" : 1703679895829,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toContain",
+      "time" : {
+        "start" : 1703679895830,
+        "stop" : 1703679895835,
+        "duration" : 5
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "expect.toEqual",
+      "time" : {
+        "start" : 1703679895835,
+        "stop" : 1703679895838,
+        "duration" : 3
+      },
+      "status" : "failed",
+      "statusMessage" : "expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3",
+      "statusTrace" : "\n    at ApiLambdaStoplistsPage.lambdaStoplists (/home/runner/work/stoplist/stoplist/pages/stoplistPage.ts:34:35)\n    at /home/runner/work/stoplist/stoplist/tests/stoplist_test.spec.ts:12:13",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true
+    }, {
+      "name" : "After Hooks",
+      "time" : {
+        "start" : 1703679895839,
+        "stop" : 1703679895999,
+        "duration" : 160
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "94e866d1ba1b937d",
+      "name" : "trace",
+      "source" : "94e866d1ba1b937d.zip",
+      "type" : "application/zip",
+      "size" : 6636
+    }, {
+      "uid" : "84ec731703a69728",
+      "name" : "stdout",
+      "source" : "84ec731703a69728.txt",
+      "type" : "text/plain",
+      "size" : 41
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 10,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "language",
+    "value" : "JavaScript"
+  }, {
+    "name" : "framework",
+    "value" : "Playwright"
+  }, {
+    "name" : "titlePath",
+    "value" : " > chromium > stoplist_test.spec.ts > Stoplist Page"
+  }, {
+    "name" : "host",
+    "value" : "fv-az1499-580"
+  }, {
+    "name" : "thread",
+    "value" : "fv-az1499-580-2313-playwright-worker-4"
+  }, {
+    "name" : "parentSuite",
+    "value" : "chromium"
+  }, {
+    "name" : "suite",
+    "value" : "stoplist_test.spec.ts"
+  }, {
+    "name" : "subSuite",
+    "value" : "Stoplist Page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "Project",
+    "value" : "chromium"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "112ec26c516c87a7",
+      "status" : "failed",
+      "statusDetails" : "Error: expect(received).toEqual(expected) // deep equality\n\nExpected: 7\nReceived: 3",
+      "time" : {
+        "start" : 1703679891269,
+        "stop" : 1703679894311,
+        "duration" : 3042
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 1,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "be523c621c50ce67",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/7//#testresult/be523c621c50ce67",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702916040565,
+          "stop" : 1702916041102,
+          "duration" : 537
+        }
+      }, {
+        "uid" : "de8a97746d808249",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/6//#testresult/de8a97746d808249",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702624511090,
+          "stop" : 1702624511593,
+          "duration" : 503
+        }
+      }, {
+        "uid" : "a1f752764850158a",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/5//#testresult/a1f752764850158a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702605516543,
+          "stop" : 1702605517371,
+          "duration" : 828
+        }
+      }, {
+        "uid" : "ab139abb39bbe3b2",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/4//#testresult/ab139abb39bbe3b2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702563562652,
+          "stop" : 1702563563453,
+          "duration" : 801
+        }
+      }, {
+        "uid" : "707a77fd9b0cd4b9",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/3//#testresult/707a77fd9b0cd4b9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702518989592,
+          "stop" : 1702518990310,
+          "duration" : 718
+        }
+      }, {
+        "uid" : "4b91088f3abd15e1",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/2//#testresult/4b91088f3abd15e1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702474836569,
+          "stop" : 1702474836823,
+          "duration" : 254
+        }
+      }, {
+        "uid" : "93bf81d4bb2b4f78",
+        "reportUrl" : "https://IvanK-QX.github.io/stoplist/1//#testresult/93bf81d4bb2b4f78",
+        "status" : "passed",
+        "time" : {
+          "start" : 1702467620460,
+          "stop" : 1702467620829,
+          "duration" : 369
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "8a2d7affc7d95ffd.json",
+  "parameterValues" : [ "chromium" ]
+}
