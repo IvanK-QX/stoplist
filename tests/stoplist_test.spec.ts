@@ -1,52 +1,130 @@
 import { request, test } from '@playwright/test'
-import { chatOnlyBlacklistEn, chatOnlyBlacklistEs, chatOnlyBlacklistRu, nameAndStatusBlacklist, privateChatBlacklist } from './../pages/labdaStoplist_Payload'
+import { Api } from '../pages/Api';
+import { failedWords, readWordsFromFile, writeFailedWordsToFile } from '../pages/lambdaStoplists_page';
 import { dataSet } from '../utils/dataset';
-import { ApiLambdaStoplistsPage } from '../pages/stoplistPage';
 
-test.describe('Stoplist Page', async () => {
+let chatOnlyEn, chatOnlyEs, chatOnlyRu, nameAndStatus, privateChat, testFailed = false
 
-    //Chat Only Blacklist En
-    for (const word of chatOnlyBlacklistEn) {
-        test(`Test Cases -> Chat Only En with the word: ${word}`, async () => {
-            const apiContext = await request.newContext();
-            const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
-        });
-    }
+test.describe.only('3003 API test ', async () => {
 
-    //Chat Only Blacklist Es
-    for (const word of chatOnlyBlacklistEs) {
-        test(`Test Cases -> Chat Only Es with the word: ${word}`, async () => {
-            const apiContext = await request.newContext();
-            const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
-        });
-    }
 
-    //Chat Only Blacklist Ru
-    for (const word of chatOnlyBlacklistRu) {
-        test(`Test Cases -> Chat Only Ru with the word: ${word}`, async () => {
-            const apiContext = await request.newContext();
-            const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'chat_only', word)
-        });
-    }
+    test.beforeAll(async () => {
+        const filePathChatOnlyEn = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_en.txt';
+        const filePathChatOnlyEs = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_es.txt';
+        const filePathChatOnlyRu = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_ru.txt';
+        const filePathNameAndStatus = '/Users/yulian/Documents/GitHub/stoplist/Files/name_and_status.txt';
+        const filePathPrivateChat = '/Users/yulian/Documents/GitHub/stoplist/Files/private_chat.txt';
+        
+        chatOnlyEn = await readWordsFromFile(filePathChatOnlyEn);
+        chatOnlyEs = await readWordsFromFile(filePathChatOnlyEs);
+        chatOnlyRu = await readWordsFromFile(filePathChatOnlyRu);
+        nameAndStatus = await readWordsFromFile(filePathNameAndStatus);
+        privateChat = await readWordsFromFile(filePathPrivateChat);
+    })
 
-    //Private Chat Blacklist 
-    for (const word of privateChatBlacklist) {
-        test(`Test Cases -> Private Chat with the word: ${word}`, async () => {
-            const apiContext = await request.newContext();
-            const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'private_chat', word)
-        });
-    }
+    test.afterEach(async () => {
+        if (testFailed) {
+            const errorMessage = `Test failed due to one or more words in the list. Failed Words: \n${failedWords.join('\n')}`;
+            throw new Error(errorMessage);
+        }
+    })
+      
+    test('Test Cases -> Chat Only En', async () => {
+        test.setTimeout(0); 
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+      
+        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        for (const word of chatOnlyEn) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsEn.txt';
+                writeFailedWordsToFile(filePath)
+            }
+            
+        }
+    })
 
-    //Name and Statuses Blacklist 
-    for (const word of nameAndStatusBlacklist) {
-        test(`Test Cases -> Name and Statuses with the word: ${word}`, async () => {
-            const apiContext = await request.newContext();
-            const stoplistPage = new ApiLambdaStoplistsPage(apiContext);
-            await stoplistPage.lambdaStoplists(dataSet.prodUrl, 'name_and_status', word)
-        });
-    }
+    test('Test Cases -> Chat Only Es', async () => {
+        test.setTimeout(0); 
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+      
+        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        for (const word of chatOnlyEs) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsEs.txt';
+                writeFailedWordsToFile(filePath)
+            }
+        }
+    })
+
+    test('Test Cases -> Chat Only Ru', async () => {
+        test.setTimeout(0); 
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+      
+        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        for (const word of chatOnlyRu) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsRu.txt';
+                writeFailedWordsToFile(filePath)
+            }
+        }
+    })
+
+    test('Test Cases -> Name and Status', async () => {
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+      
+        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        for (const word of nameAndStatus) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'name_and_status', word);
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsNameAndStatus.txt';
+                writeFailedWordsToFile(filePath)
+            }
+        }
+    })
+
+    test('Test Cases -> Private Chat', async () => {
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+      
+        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        for (const word of privateChat) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'private_chat', word);
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsPrivateChat.txt';
+                writeFailedWordsToFile(filePath)
+            }
+        }
+    })
 })
