@@ -9,11 +9,11 @@ test.describe.only('3003 API test ', async () => {
 
 
     test.beforeAll(async () => {
-        const filePathChatOnlyEn = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_en.txt';
-        const filePathChatOnlyEs = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_es.txt';
-        const filePathChatOnlyRu = '/Users/yulian/Documents/GitHub/stoplist/Files/chat_only_ru.txt';
-        const filePathNameAndStatus = '/Users/yulian/Documents/GitHub/stoplist/Files/name_and_status.txt';
-        const filePathPrivateChat = '/Users/yulian/Documents/GitHub/stoplist/Files/private_chat.txt';
+        const filePathChatOnlyEn = 'Files/chat_only_en.txt';
+        const filePathChatOnlyEs = 'Files/chat_only_es.txt';
+        const filePathChatOnlyRu = 'Files/chat_only_ru.txt';
+        const filePathNameAndStatus = 'Files/name_and_status.txt';
+        const filePathPrivateChat = 'Files/private_chat.txt';
         
         chatOnlyEn = await readWordsFromFile(filePathChatOnlyEn);
         chatOnlyEs = await readWordsFromFile(filePathChatOnlyEs);
@@ -43,7 +43,7 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsEn.txt';
+                const filePath = 'Files/failedWordsEn.txt';
                 writeFailedWordsToFile(filePath)
             }
             
@@ -64,7 +64,7 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsEs.txt';
+                const filePath = 'Files/failedWordsEs.txt';
                 writeFailedWordsToFile(filePath)
             }
         }
@@ -84,7 +84,7 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsRu.txt';
+                const filePath = 'Files/failedWordsRu.txt';
                 writeFailedWordsToFile(filePath)
             }
         }
@@ -103,7 +103,7 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsNameAndStatus.txt';
+                const filePath = 'Files/failedWordsNameAndStatus.txt';
                 writeFailedWordsToFile(filePath)
             }
         }
@@ -122,7 +122,7 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = '/Users/yulian/Documents/GitHub/stoplist/Files/failedWordsPrivateChat.txt';
+                const filePath = 'Files/failedWordsPrivateChat.txt';
                 writeFailedWordsToFile(filePath)
             }
         }
