@@ -1,25 +1,36 @@
 import { request, test } from '@playwright/test'
 import { Api } from '../pages/Api';
-import { failedWords, readWordsFromFile, writeFailedWordsToFile } from '../pages/lambdaStoplists_page';
+import { failedWords, stopListsFilter } from '../pages/lambdaStoplists_page';
 import { dataSet } from '../utils/dataset';
 
-let chatOnlyEn, chatOnlyEs, chatOnlyRu, nameAndStatus, privateChat, testFailed = false
+let nameAndStatusCount, chatOnlyEs, chatOnlyRu, nameAndStatus, chatOnlyEn, testFailed = false, chatOnlyEsRaw, stopListRu, chatOnlyRuRaw, stopNameAndStatuses, NameAndStatusesRaw, stopListNameAndStatuses, stopListPrivateChat, privateChatRaw, privateChat, chatOnlyEnRaw = false
 
-test.describe.only('3003 API test ', async () => {
+const faledChatOnlyEn = 'files/failedWordsEn.txt';
+const failedChatOnlyEs = 'files/failedWordsEs.txt';
+const failedChatOnlyRu = 'files/failedWordsRu.txt';
+const failedNameAndStatusPart1 = 'files/failedWordsNameAndStatusPart1.txt';
+const failedNameAndStatusPart2 = 'files/failedWordsNameAndStatusPart2.txt';
+const failedPrivateChat = 'files/failedWordsPrivateChat.txt';
 
 
+test.describe('3003 API test ', async () => {
     test.beforeAll(async () => {
-        const filePathChatOnlyEn = 'Files/chat_only_en.txt';
-        const filePathChatOnlyEs = 'Files/chat_only_es.txt';
-        const filePathChatOnlyRu = 'Files/chat_only_ru.txt';
-        const filePathNameAndStatus = 'Files/name_and_status.txt';
-        const filePathPrivateChat = 'Files/private_chat.txt';
+        const apiContext = await request.newContext()
+        const api = new Api(apiContext)
+        const stopLists = await api.lambdaStoplists.getLambdaStoplists(dataSet.getStopListsProdUrl)
         
-        chatOnlyEn = await readWordsFromFile(filePathChatOnlyEn);
-        chatOnlyEs = await readWordsFromFile(filePathChatOnlyEs);
-        chatOnlyRu = await readWordsFromFile(filePathChatOnlyRu);
-        nameAndStatus = await readWordsFromFile(filePathNameAndStatus);
-        privateChat = await readWordsFromFile(filePathPrivateChat);
+        const chatOnlyEnRaw = stopLists.chatOnlyEn
+        const chatOnlyEsRaw = stopLists.chatOnlyEs
+        const chatOnlyRuRaw = stopLists.chatOnlyRu
+        const NameAndStatusesRaw = stopLists.nameAndStatuses
+        const privateChatRaw = stopLists.privateChat
+
+        chatOnlyEn = await api.lambdaStoplists.stopListsFilter(chatOnlyEnRaw)
+        chatOnlyEs = await api.lambdaStoplists.stopListsFilter(chatOnlyEsRaw)
+        chatOnlyRu = await api.lambdaStoplists.stopListsFilter(chatOnlyRuRaw)
+        nameAndStatus = await api.lambdaStoplists.stopListsFilter(NameAndStatusesRaw)
+        privateChat = await api.lambdaStoplists.stopListsFilter(privateChatRaw)
+        nameAndStatusCount = Math.floor(nameAndStatus.length / 2)
     })
 
     test.afterEach(async () => {
@@ -33,8 +44,7 @@ test.describe.only('3003 API test ', async () => {
         test.setTimeout(0); 
         const apiContext = await request.newContext();
         const api = new Api(apiContext);
-      
-        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        
         for (const word of chatOnlyEn) {
             try {
                 await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
@@ -43,19 +53,18 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = 'Files/failedWordsEn.txt';
-                writeFailedWordsToFile(filePath)
+                const filePath = faledChatOnlyEn
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
             }
-            
         }
+        
     })
 
     test('Test Cases -> Chat Only Es', async () => {
         test.setTimeout(0); 
         const apiContext = await request.newContext();
-        const api = new Api(apiContext);
-      
-        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        const api = new Api(apiContext);      
+        
         for (const word of chatOnlyEs) {
             try {
                 await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
@@ -64,8 +73,8 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = 'Files/failedWordsEs.txt';
-                writeFailedWordsToFile(filePath)
+                const filePath = failedChatOnlyEs
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
             }
         }
     })
@@ -74,8 +83,7 @@ test.describe.only('3003 API test ', async () => {
         test.setTimeout(0); 
         const apiContext = await request.newContext();
         const api = new Api(apiContext);
-      
-        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
+        
         for (const word of chatOnlyRu) {
             try {
                 await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'chat_only', word);
@@ -84,36 +92,59 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = 'Files/failedWordsRu.txt';
-                writeFailedWordsToFile(filePath)
+                const filePath = failedChatOnlyRu
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
             }
         }
     })
 
-    test('Test Cases -> Name and Status', async () => {
+
+
+    test('Test Cases -> Name and Status part-1', async () => {
+        test.setTimeout(0); 
         const apiContext = await request.newContext();
         const api = new Api(apiContext);
-      
-        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
-        for (const word of nameAndStatus) {
+        const nameAndStatusList = nameAndStatus.slice(0, nameAndStatusCount); // Отримання всіх слів
+        for (const word of nameAndStatusList) {
             try {
                 await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'name_and_status', word);
+                console.log("Name and Status-1 Passed")
             } catch (error) {
                 console.error(`Test failed for word: ${word}, Error: ${error.message}`);
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = 'Files/failedWordsNameAndStatus.txt';
-                writeFailedWordsToFile(filePath)
+                const filePath = failedNameAndStatusPart1
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
+            }
+        }
+    })
+
+    test('Test Cases -> Name and Status part-2', async () => {
+        test.setTimeout(0); 
+        const apiContext = await request.newContext();
+        const api = new Api(apiContext);
+        const nameAndStatusList = nameAndStatus.slice(nameAndStatusCount); // Отримання всіх слів
+        for (const word of nameAndStatusList) {
+            try {
+                await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'name_and_status', word);
+                console.log("Name and Status-2 Passed")
+            } catch (error) {
+                console.error(`Test failed for word: ${word}, Error: ${error.message}`);
+                testFailed = true;
+            }
+            if (testFailed) {
+                const filePath = failedNameAndStatusPart2
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
             }
         }
     })
 
     test('Test Cases -> Private Chat', async () => {
+        test.setTimeout(0); 
         const apiContext = await request.newContext();
         const api = new Api(apiContext);
       
-        // Використовуємо for of, оскільки wordsArray вже повинен бути доступний
         for (const word of privateChat) {
             try {
                 await api.lambdaStoplists.lambdaStoplists(dataSet.prodUrl, 'private_chat', word);
@@ -122,9 +153,11 @@ test.describe.only('3003 API test ', async () => {
                 testFailed = true;
             }
             if (testFailed) {
-                const filePath = 'Files/failedWordsPrivateChat.txt';
-                writeFailedWordsToFile(filePath)
+                const filePath = failedPrivateChat
+                await api.lambdaStoplists.writeFailedWordsToFile(filePath)
             }
         }
     })
 })
+
+

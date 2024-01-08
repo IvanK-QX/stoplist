@@ -28,40 +28,65 @@ export class ApiLambdaStoplistsPage {
         //display the Test with World which Passed/Failed Test
         const actualStatusCode = apiRequest.status()
         const testStatus = actualStatusCode === 200 && numberOfAsterisks === expectedNumberOfAsterisks;
-        console.log(`The test with the Word -> ${word} ${testStatus ? 'passed' : 'failed'}`)
+        console.log(`The test with the Word -> ${word} ${testStatus ? 'passed' : 'failed'}`)      
         //add Failed Words to the array 
         !testStatus && failedWords.push(word);
         expect(haveMatches).toEqual(true)
         expect(replaced).toContain("*")
         expect(numberOfAsterisks).toEqual(expectedNumberOfAsterisks);
-        console.log(`The Word: ${word} is blocked`)
-        
+        console.log(`The Word: ${word} is blocked`)        
+    }
+    async getLambdaStoplists(url: string) {
+        const apiContext = await request.newContext({ ignoreHTTPSErrors: true })
+            const data = {
+                "language": "en", 
+                "type": "chat_only",
+                "name": ""
+            }
+            const headers = {
+                'Authorization': 'Bearer F5MhEkJ7xbrkgjy7ZZFzQVQXYv9Rdva3',
+                'packagename': 'com.plamfy',
+                'content-type': 'application/json',
+                'appversion': '1',
+                'os': 'ios'
+            }
+            const apiRequest = await apiContext.get(url, { data, headers: headers })
+            expect(apiRequest.ok()).toBeTruthy()
+            const response = await apiRequest.json()
+            const chatOnlyEs = response[0].words
+            const chatOnlyRu = response[1].words
+            const nameAndStatuses = response[2].words
+            const chatOnlyEn = response[3].words
+            const privateChat = response[4].words
+            return { chatOnlyEn, chatOnlyEs, chatOnlyRu, nameAndStatuses, privateChat }
     }
 
-}
-
-export async function readWordsFromFile(filePath: string) {
-    try {
-        const fileContent = await fs.promises.readFile(filePath, 'utf-8');
-        const wordsArray = Array.from(new Set(
-        fileContent
-          .split('\n')
-          .map(word => word.trim())
-          .filter(word => !word.includes('(') && !word.includes('['))
+    async stopListsFilter(stopListArray: any) {
+        const newStopListArray = Array.from(new Set(
+            stopListArray
+                .map((word: string) => word.trim())
+                .filter((word: string) => !word.includes('(') && !word.includes('['))
         ));
-        return wordsArray;
-    } catch (error) {
-      console.error(`Reading Error: ${error.message}`);
-      return [];
+        return Promise.resolve(newStopListArray);
     }
+
+    async writeFailedWordsToFile(filePath: string) {
+        try {
+            const currentDate = new Date();
+            const data = `${failedWords.join('\n')}\n\nThe Words added on: ${currentDate.toISOString()}\n`;
+            await fs.promises.writeFile(filePath, data, 'utf-8');
+        } catch (error) {
+            console.error(`Writing Failed Words to File Error: ${error.message}`);
+        }
+    }
+
 }
 
-export async function writeFailedWordsToFile(filePath: string) {
-    try {
-        const currentDate = new Date();
-        const data = `${failedWords.join('\n')}\n\nThe Words added on: ${currentDate.toISOString()}\n`;
-        await fs.promises.writeFile(filePath, data, 'utf-8');
-    } catch (error) {
-        console.error(`Writing Failed Words to File Error: ${error.message}`);
-    }
+export function stopListsFilter(stopListArray: any) {
+    const newStopListArray = Array.from(new Set(
+        stopListArray
+            .map((word: string) => word.trim())
+            .filter((word: string) => !word.includes('(') && !word.includes('['))
+    ));
+    return Promise.resolve(newStopListArray);
 }
